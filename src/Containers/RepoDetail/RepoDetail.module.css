@@ -1,0 +1,42 @@
+.RepoTitle {
+    color: rgb(46, 121, 207);
+    border-bottom: 2px solid rgb(95, 146, 204);
+    margin-right: 5%;
+    text-align: right;
+}
+
+.CloneInput {
+    border: none;
+    outline: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    width: 300px;
+}
+
+button.BackButton {
+    margin: 10px;
+    width: 150px;
+}
+
+img.Avatar {
+    width: 100px;
+    float: right;
+    border: 3px solid rgb(46, 121, 207);
+    border-radius: 20px;
+}
+
+.Readme, .InfoPanel {
+    width: 80%;
+    margin: auto;
+    Border: 1px solid rgb(95, 146, 204);
+    padding: 10px;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
+}
+
+.Readme img {
+    display: block;
+    max-width: 80%;
+    margin: auto;
+}

@@ -1,0 +1,25 @@
+.App{
+  font-family: 'Open Sans', sans-serif;
+}
+
+button {
+  background-color: rgb(95, 146, 204);
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid rgb(46, 121, 207);
+  box-shadow: 0 8px 16px 0 #bbb;
+  box-sizing: border-box;
+  outline: none;
+  color: rgba(245, 245, 245, 0.795);
+}
+
+button:disabled{
+
+  background-color: rgb(202, 202, 202);
+  border: 1px solid rgb(185, 184, 184);
+  color: rgb(124, 124, 124);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.45;
+
+}

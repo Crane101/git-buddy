@@ -1,0 +1,51 @@
+table.ResultsTable {
+    width: 90%;
+    text-align: left;
+    margin: auto;
+}
+
+table.ResultsTable td, table.ResultsTable th {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+}
+
+table.ResultsTable tr {
+    background-color: rgb(168, 161, 161);
+    border: 1px solid #ddd;
+}
+
+table.ResultsTable tr:hover {
+    background-color: rgb(143, 169, 207);
+    cursor: pointer;
+}
+
+table.ResultsTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(46, 121, 207);
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+img.Avatar {
+    width: 30px;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+.Abbreviated {
+    display: none;
+}
+
+@media (max-width:420px) {
+    td, th {
+        padding: 2px 5px;
+    }
+    .Abbreviated {
+        display: block;
+    }
+    .FullText {
+        display: none;
+    }
+}
