@@ -6,6 +6,7 @@ import * as RepoActions from '../../Store/Repositories/RepoActions'
 import * as RepoTypes from '../../Store/Repositories/RepoTypes'
 import SearchResults from '../../Components/SearchResults/SearchResults';
 import Loader from '../../Utils/Loader/Loader';
+import SearchForm from '../../Components/SearchForm/SearchForm';
 import styles from './Search.module.css';
 
 type StateProps = {
@@ -14,7 +15,7 @@ type StateProps = {
     currentPage: number,
     isLastPage: boolean,
     loading: boolean,
-    searchText?: string,
+    searchText: string,
     error: string | null,
 }
 
@@ -29,11 +30,7 @@ class Search extends Component<StateProps & DispatchProps & RouteComponentProps>
         this.props.setSearchText(ev.currentTarget.value);
     }
 
-    componentDidMount() {
-        // this.props.repoSearch(this.state.searchText as string)
-    }
-
-    onSubmitSearch = (ev: React.FormEvent<HTMLFormElement>) => {
+    onSubmitSearchHandler = (ev: React.FormEvent<HTMLFormElement>) => {
         ev.preventDefault();
         if (!this.props.searchText) { return; }
         this.props.repoSearch(this.props.searchText, 1)
@@ -57,13 +54,10 @@ class Search extends Component<StateProps & DispatchProps & RouteComponentProps>
         return (
             <React.Fragment>
 
-                <div className={styles.SearchFormWrapper}>
-                    <form className={styles.SearchForm} onSubmit={this.onSubmitSearch}>
-                        <input className={styles.SearchInput} type="text" placeholder="Search for a repo" value={this.props.searchText} onChange={this.onSearchTextChangedHandler} />
-                        <button className={styles.SearchButton} type="submit">Search</button>
-                    </form>
-
-                </div>
+                <SearchForm
+                    searchText={this.props.searchText}
+                    searchTextChanged={this.onSearchTextChangedHandler}
+                    submitSearch={this.onSubmitSearchHandler} />
 
                 <hr />
 

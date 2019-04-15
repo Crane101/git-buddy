@@ -25,7 +25,7 @@ export type RepoState = {
     currentPage: number,
     isLastPage: boolean,
     loading: boolean,
-    searchText?: string
+    searchText: string
 }
 
 export type RepoSearchAction = {
