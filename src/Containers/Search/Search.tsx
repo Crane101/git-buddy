@@ -24,7 +24,7 @@ type DispatchProps = {
     setSearchText(searchText: string): void,
 }
 
-class Search extends Component<StateProps & DispatchProps & RouteComponentProps> {
+export class Search extends Component<StateProps & DispatchProps & RouteComponentProps> {
 
     onSearchTextChangedHandler = (ev: React.FormEvent<HTMLInputElement>) => {
         this.props.setSearchText(ev.currentTarget.value);
