@@ -1,6 +1,8 @@
 
 Demo project to showcase react skillset
 
+Have used Redux Saga in one component and Hooks in the other for demo purposes only!
+
 # Outstanding Work
 
 * Unit tests!
