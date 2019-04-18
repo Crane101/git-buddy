@@ -20,34 +20,32 @@ type StateProps = {
 }
 
 type DispatchProps = {
-    repoSearch(searchText: string, page: number): void,
-    setSearchText(searchText: string): void,
+    onRepoSearch(searchText: string, page: number): void,
+    onSetSearchText(searchText: string): void,
 }
 
-export class Search extends Component<StateProps & DispatchProps & RouteComponentProps> {
+export type Props = StateProps & DispatchProps & RouteComponentProps;
 
-    onSearchTextChangedHandler = (ev: React.FormEvent<HTMLInputElement>) => {
-        this.props.setSearchText(ev.currentTarget.value);
+export class Search extends Component<Props> {
+
+    onSearchTextChangedHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
+        this.props.onSetSearchText(ev.currentTarget.value);
     }
 
     onSubmitSearchHandler = (ev: React.FormEvent<HTMLFormElement>) => {
         ev.preventDefault();
         if (!this.props.searchText) { return; }
-        this.props.repoSearch(this.props.searchText, 1)
+        this.props.onRepoSearch(this.props.searchText, 1)
     }
 
     RepoClickedHandler = (repoId: number) => {
         this.props.history.push(`/repo/${repoId}`)
     }
 
-    nextPageClickedHandler = () => {
-        if (!this.props.searchText) { return; }
-        this.props.repoSearch(this.props.searchText, this.props.currentPage + 1)
-    }
 
-    prevPageClickedHandler = () => {
+    changePageHandler = (increment: number) => {
         if (!this.props.searchText) { return; }
-        this.props.repoSearch(this.props.searchText, this.props.currentPage - 1)
+        this.props.onRepoSearch(this.props.searchText, this.props.currentPage + increment)
     }
 
     render() {
@@ -71,8 +69,8 @@ export class Search extends Component<StateProps & DispatchProps & RouteComponen
                         <SearchResults
                             results={this.props.searchResults}
                             repoClicked={this.RepoClickedHandler}
-                            prevPage={this.prevPageClickedHandler}
-                            nextPage={this.nextPageClickedHandler}
+                            prevPage={() => this.changePageHandler(-1)}
+                            nextPage={() => this.changePageHandler(1)}
                             currentPage={this.props.currentPage}
                             isLastPage={this.props.isLastPage}
                         />
@@ -100,8 +98,8 @@ const mapStateToProps = (state: RepoTypes.RepoState): StateProps => {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
     return {
-        repoSearch: (searchText: string, pageNumber: number) => dispatch(RepoActions.RepoSearch(searchText, pageNumber)),
-        setSearchText: (searchText: string) => dispatch(RepoActions.SetRepoSearchText(searchText)),
+        onRepoSearch: (searchText: string, pageNumber: number) => dispatch(RepoActions.RepoSearch(searchText, pageNumber)),
+        onSetSearchText: (searchText: string) => dispatch(RepoActions.SetRepoSearchText(searchText)),
     }
 }
 
