@@ -1,7 +1,7 @@
 import marked from 'marked';
 import React from 'react';
 
-type Props = {
+interface Props {
     content: string,
     baseUrl?: string
 }

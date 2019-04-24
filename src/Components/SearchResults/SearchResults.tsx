@@ -3,7 +3,7 @@ import { Repo } from '../../Store/Repositories/RepoTypes';
 import PageControls from '../PageControls/PageControls';
 import styles from './SearchResults.module.css';
 
-type Props = {
+interface Props  {
 
     results: Repo[],
     repoClicked(repoId: number): void,

@@ -4,7 +4,7 @@ export const REPO_SEARCH_SUCCESS = "REPO_SEARCH_SUCCESS"
 export const REPO_SEARCH_ERROR = "REPO_SEARCH_ERROR"
 export const SET_REPO_SEARCH_TEXT = "SET_REPO_SEARCH_TEXT"
 
-export type Repo = {
+export interface Repo  {
 
     id: number,
     name: string,
@@ -18,7 +18,7 @@ export type Repo = {
     }
 }
 
-export type RepoState = {
+export interface RepoState  {
     total?: number,
     repos: Repo[] | null,
     error: string | null,
@@ -28,30 +28,30 @@ export type RepoState = {
     searchText: string
 }
 
-export type RepoSearchAction = {
+export interface RepoSearchAction  {
     type: typeof REPO_SEARCH,
     searchText: string,
     page: number
 }
 
-export type RepoSearchSuccessAction = {
+export interface RepoSearchSuccessAction  {
     type: typeof REPO_SEARCH_SUCCESS,
     searchResults: Repo[],
     totalResults: number,
     isLastPage: boolean,
 }
 
-export type RepoSearchErrorAction = {
+export interface RepoSearchErrorAction  {
     type: typeof REPO_SEARCH_ERROR,
     errorMessage: string
 }
 
-export type SetRepoSearchTextAction = {
+export interface SetRepoSearchTextAction  {
     type: typeof SET_REPO_SEARCH_TEXT,
     searchText: string
 }
 
-export type RepoActionTypes =
+export type RepoActionTypes = 
     RepoSearchAction |
     RepoSearchSuccessAction |
     RepoSearchErrorAction|

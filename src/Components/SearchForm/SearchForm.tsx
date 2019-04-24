@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SearchForm.module.css';
 
-type Props = {
+interface Props  {
     submitSearch(ev: React.FormEvent<HTMLFormElement>): void
     searchText: string,
     searchTextChanged(ev: React.ChangeEvent<HTMLInputElement>): void

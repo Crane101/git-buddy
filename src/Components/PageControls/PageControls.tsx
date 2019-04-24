@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PageControls.module.css'
 
-type Props = {
+interface Props  {
     currentPage: number,
     isLastPage: boolean,
     nextPage(): void,

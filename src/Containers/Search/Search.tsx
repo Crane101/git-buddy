@@ -9,7 +9,7 @@ import Loader from '../../Utils/Loader/Loader';
 import SearchForm from '../../Components/SearchForm/SearchForm';
 import styles from './Search.module.css';
 
-type StateProps = {
+interface StateProps {
     searchResults: RepoTypes.Repo[] | null,
     totalResults?: number,
     currentPage: number,
@@ -19,12 +19,12 @@ type StateProps = {
     error: string | null,
 }
 
-type DispatchProps = {
+interface DispatchProps {
     onRepoSearch(searchText: string, page: number): void,
     onSetSearchText(searchText: string): void,
 }
 
-export type Props = StateProps & DispatchProps & RouteComponentProps;
+export interface Props extends StateProps, DispatchProps, RouteComponentProps {};
 
 export class Search extends Component<Props> {
 

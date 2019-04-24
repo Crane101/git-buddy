@@ -3,24 +3,24 @@ import { Repo } from '../../../Store/Repositories/RepoTypes';
 export const SET_REPO_DETAIL = "SET_REPO_DETAIL";
 export const SET_README = "SET_README";
 
-export type RepoDetailState = {
+export interface RepoDetailState  {
     details: RepoData,
     readme: string,
 }
 
-export type RepoData = Repo & {
+export interface RepoData  extends Repo  {
     openIssuesCount: number,
     forkCount: number,
     defaultBranch: string,
     cloneUrl: string,
 }
 
-type SetRepoDetailAction = {
+interface SetRepoDetailAction  {
     type: typeof SET_REPO_DETAIL,
     repoData: RepoData
 }
 
-type SetReadmeAction = {
+interface SetReadmeAction  {
     type: typeof SET_README,
     readme: string,
 }
